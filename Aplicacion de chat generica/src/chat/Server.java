@@ -21,13 +21,13 @@ public class Server {
             in = new BufferedReader (new InputStreamReader(clientSocket.getInputStream()));
 
             Thread sender= new Thread(new Runnable() {
-                String msg; //variable that will contains the data writter by the user
-                @Override   // annotation to override the run method
+                String msg;
+                @Override 
                 public void run() {
                     while(true){
-                        msg = sc.nextLine(); //reads data from user's keybord
-                        out.println(msg);    // write data stored in msg in the clientSocket
-                        out.flush();   // forces the sending of the data
+                        msg = sc.nextLine();
+                        out.println(msg);   
+                        out.flush();
                     }
                 }
             });
@@ -39,13 +39,13 @@ public class Server {
                 public void run() {
                     try {
                         msg = in.readLine();
-                        //tant que le client est connecté
+             
                         while(msg!=null){
                             System.out.println("Client : "+msg);
                             msg = in.readLine();
                         }
 
-                        System.out.println("Client déconecté");
+                        System.out.println("EL cliente se desconecto");
 
                         out.close();
                         clientSocket.close();
