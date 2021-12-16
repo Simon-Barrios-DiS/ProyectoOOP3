@@ -37,7 +37,7 @@ public class Client {
                             System.out.println("Server : "+msg);
                             msg = in.readLine();
                         }
-                        System.out.println("Server out of service");
+                        System.out.println("Servidor fuera de servicio");
                         out.close();
                         clientSocket.close();
                     } catch (IOException e) {
